@@ -4,7 +4,7 @@
   - git clone https://github.com/adreider/Quote-Dollar-Shx
 
 ## Importante 🔴
- - ### intall Dependecies
+ - ### install Dependecies
     - yarn ou npm install
  - ### Run Project
     - expo start
