@@ -1,7 +1,7 @@
 # Quote Dollar - SHX 🏢
 
 <p align="center">
-  <img alt="thumb" src="https://github.com/adreider/Quote-Dollar-Shx/blob/main/.github/preview.png">
+  <img alt="thumb" src="https://github.com/adreider/Quote-Dollar-Shx/blob/main/.github/mobile.png">
 </p>
 
 
