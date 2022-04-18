@@ -1,15 +1,25 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 
-export const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "#6272a4",
-    padding: 15,
-    marginTop: 10,
-    borderRadius: 8
-  },
-  text: {
-    fontSize: 42,
-  },
-});
+export const ContentText = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 270px;
+`
+
+export const Strong = styled.Text`
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+`
+export const StrongValue = styled.Text`
+  font-weight: bold;
+  font-size: 18px;
+  color: #00FA9A;
+`
+
+export const Divider = styled.View`
+  border: #ccc solid 0.5px;
+  margin-bottom: 4px;
+`

@@ -1,40 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { ThemeProvider } from 'styled-components';
-// import AppLoading from 'expo-app-loading';
-import { PrimaryTheme } from './src/global/theme'
+import React,{ useState, useEffect} from 'react';
+import { StyleSheet, View } from 'react-native';
 import { Home } from './src/screens/Home';
-import {
-  useFonts,
-  Ubuntu_400Regular,
-  Ubuntu_700Bold,
-  Ubuntu_400Regular_Italic,
-} from '@expo-google-fonts/ubuntu'
-import { Loading } from './src/components/Loading';
 import { PrimaryHeader as Header } from './src/components/Header';
-
+import LottieView from 'lottie-react-native';
+import DollaSvg from './src/assets/dollarLottie.json';
 
 export default function App() {
+  const [loop, setLoop] = useState(true);
+  useEffect(
+    () => {
+      let timer = setTimeout(() => setLoop(false), 5000);
+      return () => {
+        clearTimeout(timer);
+      };
+    },[]);
 
-  const [fontsLoaded] = useFonts({
-    Ubuntu_400Regular,
-    Ubuntu_700Bold,
-    Ubuntu_400Regular_Italic,
-  });
-
-  if (!fontsLoaded) {
-    return <Loading />;
+  if (loop === true) {
+    return (
+      <LottieView
+        autoPlay
+        loop={loop}
+        source={DollaSvg}
+        style={{ backgroundColor: "#000" }}
+     />
+    )
   }
 
   return (
-    <ThemeProvider theme={PrimaryTheme}>
-      <Header />
+    <>
+      <Header>
+      </Header>
       <View style={styles.container}>
         <Home />
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
       </View>
-    </ThemeProvider>
+    </>
 
   );
 }
@@ -42,7 +43,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#282a36',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -1,26 +1,83 @@
-import { View, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View } from 'react-native';
 import { styles } from './styles';
-import { useState, useEffect } from 'react';
-
-
+import moment from 'moment';
+import AppLoading from 'expo-app-loading';
+import { Container, ContentText, Strong, StrongValue, Title, Divider } from './styles';
 
 export function Card() {
+
   const [dados, setDados] = useState();
 
   useEffect(() => {
-    fetch(`https://economia.awesomeapi.com.br/json/daily/USD-BRL/5`)
+    fetch(`https://economia.awesomeapi.com.br/last/USD-BRL`)
       .then(response => response.json())
       .then(data => {
-        console.log(data[0].ask)
-        setDados(data)
+        const dados = {
+          venda: data.USDBRL.bid,
+          compra: data.USDBRL.ask,
+          codigo: data.USDBRL.code,
+          maxima: data.USDBRL.high,
+          minima: data.USDBRL.low,
+          nome: data.USDBRL.name,
+          variacao: data.USDBRL.pctChange,
+          data: data.USDBRL.timestamp,
+        }
+        setDados(dados)
+        console.log(dados)
       })
   }, []);
-  const api = { 'foo': 'bar', 'foz': 'baz'};
+
   return (
-    <View style={styles.container}>
-      {Object.entries(api).map(([key, value]) => {
-        return <Text key={key}>{value}</Text>
-      })}
-    </View>
-  )
+    <>
+      {
+        dados ?
+          <Container>
+            <Title>{dados.nome}</Title>
+
+            <ContentText>
+              <Strong>Venda:</Strong>
+              <StrongValue>{dados.venda}</StrongValue>
+            </ContentText>
+            <Divider/>
+
+            <ContentText>
+              <Strong>compra:</Strong>
+              <StrongValue>{dados.compra}</StrongValue>
+            </ContentText>
+            <Divider/>
+
+            <ContentText>
+              <Strong>maxima:</Strong>
+              <StrongValue>{dados.maxima}</StrongValue>
+            </ContentText>
+            <Divider/>
+
+            <ContentText>
+              <Strong>minima:</Strong>
+              <StrongValue>{dados.minima}</StrongValue>
+            </ContentText>
+            <Divider/>
+
+            <ContentText>
+              <Strong>variacao:</Strong>
+              <StrongValue>{dados.variacao}</StrongValue>
+            </ContentText>
+            <Divider/>
+
+            <ContentText>
+              <Strong>data:</Strong>
+              <StrongValue>{moment(parseInt(dados.data)).format("DD/MM")}</StrongValue>
+            </ContentText>
+            <Divider/>
+           
+          </Container> 
+          
+          :
+
+          <AppLoading/>
+      }
+    </>
+  );
 }
+

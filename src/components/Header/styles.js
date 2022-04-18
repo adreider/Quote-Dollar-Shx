@@ -1,16 +1,25 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 
-export const styles = StyleSheet.create({
-  container: {
-    minHeight: 200,
-    width: '100%',
-    backgroundColor: '#bd93f9',
-    padding: 30,
-  },
+export const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #000
+`;
 
-  title: {
-    fontSize: 35,
-    color: "#fff",
-    fontWeight: "bold"
-  }
-});
+export const Header = styled.ImageBackground`
+  width: 100%;
+  height: 86%;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const Title = styled.Text`
+  font-size: 32px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: bold;
+  background-color: #333;
+  padding: 5px;
+  border-radius:8px;
+`
