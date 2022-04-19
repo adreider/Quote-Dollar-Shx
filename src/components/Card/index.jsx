@@ -21,7 +21,7 @@ export function Card() {
           minima: data.USDBRL.low,
           nome: data.USDBRL.name,
           variacao: data.USDBRL.pctChange,
-          data: data.USDBRL.timestamp,
+          período: data.USDBRL.timestamp,
         }
         setDados(dados)
         console.log(dados)

@@ -27,7 +27,7 @@ const Item = ({ ask, bid, timestamp }) => (
 
     <ContentText>
       <Strong>
-        data:
+      período:
       </Strong>
       <StrongValue>
         {moment(parseInt(timestamp)*1000).format("DD/MM/YYYY - HH:mm:ss")}
