@@ -30,7 +30,7 @@ const Item = ({ ask, bid, timestamp }) => (
         data:
       </Strong>
       <StrongValue>
-        {moment(parseInt(timestamp)).locale('pt-br').format("DD/MM - HH:mm")}
+        {moment(parseInt(timestamp)*1000).format("DD/MM/YYYY - HH:mm:ss")}
       </StrongValue>
     </ContentText>
     <Divider />

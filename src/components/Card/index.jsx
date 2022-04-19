@@ -67,7 +67,7 @@ export function Card() {
 
             <ContentText>
               <Strong>data:</Strong>
-              <StrongValue>{moment(parseInt(dados.data)).format("DD/MM")}</StrongValue>
+              <StrongValue>{moment(parseInt(dados.data)*1000).format("DD/MM/YYYY - HH:mm:ss")}</StrongValue>
             </ContentText>
             <Divider/>
            
