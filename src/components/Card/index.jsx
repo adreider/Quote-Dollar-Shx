@@ -21,7 +21,7 @@ export function Card() {
           minima: data.USDBRL.low,
           nome: data.USDBRL.name,
           variacao: data.USDBRL.pctChange,
-          período: data.USDBRL.timestamp,
+          data: data.USDBRL.timestamp,
         }
         setDados(dados)
         console.log(dados)
@@ -66,7 +66,7 @@ export function Card() {
             <Divider/>
 
             <ContentText>
-              <Strong>data:</Strong>
+              <Strong>Período:</Strong>
               <StrongValue>{moment(parseInt(dados.data)*1000).format("DD/MM/YYYY - HH:mm:ss")}</StrongValue>
             </ContentText>
             <Divider/>
