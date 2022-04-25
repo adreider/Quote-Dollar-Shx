@@ -19,7 +19,7 @@ export function Routes() {
         tabBarActiveTintColor: '#fff',
       }}
     >
-      <Tab.Screen name='Home' component={Home} options={{
+      <Tab.Screen name='início' component={Home} options={{
         tabBarIcon: ({ size, color }) => (
           <Feather name='home' size={size} color={color} />
         ),
@@ -32,10 +32,17 @@ export function Routes() {
         },
       }}
       />
-      <Tab.Screen name='Search' component={Search} options={{
+      <Tab.Screen name='Pesquisar Cotação' component={Search} options={{
         tabBarIcon: ({ size, color }) => (
           <Feather name="search" size={size} color={color} />
-        )
+        ),
+        headerStyle: {
+          backgroundColor: '#09738a',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
       }}
 
       />

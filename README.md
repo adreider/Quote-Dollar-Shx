@@ -1,8 +1,11 @@
 # Quote Dollar - SHX 🏢
 
 <p align="center">
-  <img alt="thumb" src="https://github.com/adreider/Quote-Dollar-Shx/blob/main/.github/mobile.png">
+  <img alt="thumb" src="https://github.com/adreider/Quote-Dollar-Shx/blob/main/.github/thumb.png">
+
+  <img alt="thumb" src="https://github.com/adreider/Quote-Dollar-Shx/blob/main/.github/thumb2.png">
 </p>
+
 
 
 ## Intruções para Clonar o projeto 📓
