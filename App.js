@@ -1,10 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{ useState, useEffect} from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Home } from './src/screens/Home';
-import { PrimaryHeader as Header } from './src/components/Header';
+import React, { useState, useEffect } from 'react';
+import { StatusBar } from 'react-native';
 import LottieView from 'lottie-react-native';
 import DollaSvg from './src/assets/dollarLottie.json';
+import { NavigationContainer } from '@react-navigation/native';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [loop, setLoop] = useState(true);
@@ -14,7 +13,7 @@ export default function App() {
       return () => {
         clearTimeout(timer);
       };
-    },[]);
+    }, []);
 
   if (loop === true) {
     return (
@@ -23,28 +22,14 @@ export default function App() {
         loop={loop}
         source={DollaSvg}
         style={{ backgroundColor: "#000" }}
-     />
+      />
     )
   }
 
   return (
-    <>
-      <Header>
-      </Header>
-      <View style={styles.container}>
-        <Home />
-        <StatusBar style="light" />
-      </View>
-    </>
-
+    <NavigationContainer>
+      <StatusBar style="light" />
+      <Routes />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

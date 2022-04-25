@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
-import { styles } from './styles';
 import moment from 'moment';
+import numbro from 'numbro';
 import AppLoading from 'expo-app-loading';
-import { Container, ContentText, Strong, StrongValue, Title, Divider } from './styles';
+import { Container, ContentText, Strong, StrongValue, Title, SubTitle, Divider, Box } from './styles';
 
 export function Card() {
 
@@ -24,7 +23,6 @@ export function Card() {
           data: data.USDBRL.timestamp,
         }
         setDados(dados)
-        console.log(dados)
       })
   }, []);
 
@@ -37,45 +35,43 @@ export function Card() {
 
             <ContentText>
               <Strong>Venda:</Strong>
-              <StrongValue>{dados.venda}</StrongValue>
+              <StrongValue>💲{(dados.venda).toLocaleString('pt-BR').replace(".", ",")}</StrongValue>
             </ContentText>
-            <Divider/>
 
             <ContentText>
               <Strong>compra:</Strong>
-              <StrongValue>{dados.compra}</StrongValue>
+              <StrongValue>💲{(dados.compra).toLocaleString('pt-BR').replace(".", ",")}</StrongValue>
             </ContentText>
-            <Divider/>
 
             <ContentText>
-              <Strong>maxima:</Strong>
-              <StrongValue>{dados.maxima}</StrongValue>
+              <Strong>máxima:</Strong>
+              <StrongValue>💲{(dados.maxima).toLocaleString('pt-BR').replace(".", ",")}</StrongValue>
             </ContentText>
-            <Divider/>
 
             <ContentText>
-              <Strong>minima:</Strong>
-              <StrongValue>{dados.minima}</StrongValue>
+              <Strong>mínima:</Strong>
+              <StrongValue>💲{(dados.minima).toLocaleString('pt-BR').replace(".", ",")}</StrongValue>
             </ContentText>
-            <Divider/>
 
             <ContentText>
-              <Strong>variacao:</Strong>
-              <StrongValue>{dados.variacao}</StrongValue>
+              <Strong>variação:</Strong>
+              <StrongValue>📉 {(dados.variacao).toLocaleString('pt-BR').replace(".", ",")}</StrongValue>
             </ContentText>
-            <Divider/>
 
             <ContentText>
               <Strong>Período:</Strong>
-              <StrongValue>{moment(parseInt(dados.data)*1000).format("DD/MM/YYYY - HH:mm:ss")}</StrongValue>
+              {/* <StrongValue>📅 {moment(parseInt(dados.data) * 1000).format("DD/MM/YYYY")}</StrongValue> */}
+              <StrongValue>ùltima contagem</StrongValue>
             </ContentText>
-            <Divider/>
-           
-          </Container> 
-          
-          :
+            <Divider />
 
-          <AppLoading/>
+            <Box>
+              <SubTitle>Cotações das últimas semanas</SubTitle>
+            </Box>
+
+          </Container>
+          :
+          <AppLoading />
       }
     </>
   );

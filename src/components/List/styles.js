@@ -10,16 +10,18 @@ export const ContentText = styled.View`
 
 export const Strong = styled.Text`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
+  margin-top: 4px;
   color: #fff;
 `
 export const StrongValue = styled.Text`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   color: #00FA9A;
 `
 
 export const Divider = styled.View`
-  border: #ccc solid 0.5px;
-  margin-bottom: 4px;
+  border: #ccc solid 2px;
+  margin-top: 10px;
+  border-radius: 30px;
 `

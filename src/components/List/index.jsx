@@ -10,27 +10,25 @@ const Item = ({ ask, bid, timestamp }) => (
         venda:
       </Strong>
       <StrongValue>
-        {bid}
+      💲{(bid).toLocaleString('pt-BR').replace(".", ",")}
       </StrongValue>
     </ContentText>
-    <Divider />
 
     <ContentText>
       <Strong>
         compra:
       </Strong>
       <StrongValue>
-        {ask}
+      💲{(ask).toLocaleString('pt-BR').replace(".", ",")}
       </StrongValue>
     </ContentText>
-    <Divider />
 
     <ContentText>
       <Strong>
       período:
       </Strong>
       <StrongValue>
-        {moment(parseInt(timestamp)*1000).format("DD/MM/YYYY - HH:mm:ss")}
+       📅 {moment(parseInt(timestamp)*1000).format("DD/MM/YYYY")}
       </StrongValue>
     </ContentText>
     <Divider />
@@ -64,10 +62,8 @@ export function List() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    backgroundColor: '#9400D3',
     padding: 10,
     marginVertical: 2,
     marginHorizontal: 16,

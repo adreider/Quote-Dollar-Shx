@@ -2,10 +2,8 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   display: flex;
-  background-color: #4B0082;
   padding: 10px;
-  border-radius: 8px;
-  margin-top: -200px;
+  margin-top: 10px;
 `
 
 export const ContentText = styled.View`
@@ -18,23 +16,35 @@ export const ContentText = styled.View`
 
 export const Strong = styled.Text`
   font-weight: bold;
-  font-size: 18px;
-  color: #fff;
+  font-size: 16px;
+  color: #9ed1b7;
 `
 export const StrongValue = styled.Text`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #00FA9A;
 `
 
 export const Title = styled.Text`
   font-weight: bold;
   font-size: 22px;
-  color:#D2691E;
-  text-decoration: underline;
+  color:#e7d9b4;
+`
+
+export const SubTitle = styled.Text`
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color:#e7d9b4;
 `
 
 export const Divider = styled.View`
-  border: #ccc solid 0.5px;
-  margin-bottom: 4px;
+  border: #ccc solid 1px;
+  margin-top: 10px;
+  border-radius: 30px;
+`
+
+export const Box = styled.View`
+  align-items: center;
+  justify-content: center;
 `
