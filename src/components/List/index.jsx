@@ -45,7 +45,6 @@ export function List() {
       .then(response => response.json())
       .then(data => {
         setDados(data)
-        console.log(data)
       })
   }, []);
 
