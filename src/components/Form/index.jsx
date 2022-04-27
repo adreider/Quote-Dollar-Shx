@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Text, View, KeyboardAvoidingView, TouchableWithoutFeedback,
   Platform, TouchableOpacity, SafeAreaView,
@@ -60,7 +60,7 @@ const Item = ({ ask, bid, high, low, timestamp }) => (
   </View>
 );
 
-export function Form() {
+export function Form({ dispatch }) {
   const [dados, setDados] = useState([]);
 
   const [dayStart, setDayStart] = useState('30');
@@ -71,8 +71,6 @@ export function Form() {
   const [monthEnd, setMonthEnd] = useState('');
   const [yearEnd, setYearEnd] = useState('');
 
-  const monthInput = useRef();
-
   async function handleSubmit() {
     Keyboard.dismiss();
 
@@ -81,8 +79,9 @@ export function Form() {
       .then(data => {
         setDados(data)
         console.log(data)
-      })
+      });
   }
+
 
   const renderItem = ({ item }) => <Item ask={item.ask} bid={item.bid} high={item.high} low={item.low} timestamp={item.timestamp} />;
 
@@ -108,9 +107,6 @@ export function Form() {
                     value={dayEnd}
                     placeholder="Dia"
                     onChangeText={setDayEnd}
-                    onSubmitEditing={() => {
-                      monthInput.current.focus();
-                    }}
                   />
                   <Text style={styles.divider}>
                     /
@@ -120,8 +116,6 @@ export function Form() {
                     value={monthEnd}
                     placeholder="Mês"
                     onChangeText={setMonthEnd}
-                    ref={monthInput}
-                    blurOnSubmit={false}
                   />
                   <Text style={styles.divider}>
                     /
