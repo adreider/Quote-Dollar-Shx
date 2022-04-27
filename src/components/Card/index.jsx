@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import numbro from 'numbro';
-import AppLoading from 'expo-app-loading';
+import { ActivityIndicator } from 'react-native';
 import { Container, ContentText, Strong, StrongValue, Title, SubTitle, Divider, Box } from './styles';
 
 export function Card() {
@@ -71,7 +69,12 @@ export function Card() {
 
           </Container>
           :
-          <AppLoading />
+          <ActivityIndicator
+          size="large"
+          color={'blue'}
+          animating={true}
+          style={{ alignSelf: 'center', justifyContent: 'center', position: "absolute" }}
+        />
       }
     </>
   );

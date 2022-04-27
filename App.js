@@ -17,18 +17,21 @@ export default function App() {
 
   if (loop === true) {
     return (
-      <LottieView
-        autoPlay
-        loop={loop}
-        source={DollaSvg}
-        style={{ backgroundColor: "#000" }}
-      />
+      <>
+      <StatusBar barStyle='light-content' />
+        <LottieView
+          autoPlay
+          loop={loop}
+          source={DollaSvg}
+          style={{ backgroundColor: "#a5c8ca" }}
+        />
+      </>
     )
   }
 
   return (
     <NavigationContainer>
-      <StatusBar style="light" />
+      <StatusBar barStyle='light-content' />
       <Routes />
     </NavigationContainer>
   );

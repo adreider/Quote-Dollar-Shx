@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
 
   label: {
     marginTop: 10,
+    marginBottom: 10,
     fontSize: 18,
     color: "#e7d9b4"
   },
@@ -14,7 +15,7 @@ export const styles = StyleSheet.create({
   form: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 50,
   },
 
   field: {
