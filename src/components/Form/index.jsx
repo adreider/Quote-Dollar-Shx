@@ -9,7 +9,7 @@ import { styles } from './styles';
 import { ContentText, StrongValue, Strong, Divider } from './styles';
 import moment from "moment";
 
-const Item = ({ ask, bid, high, low, timestamp }) => (
+const Item = ({ ask, bid, high, low, pctChange,timestamp }) => (
   <View style={styles.item}>
     <ContentText>
       <Strong>
@@ -49,6 +49,15 @@ const Item = ({ ask, bid, high, low, timestamp }) => (
 
     <ContentText>
       <Strong>
+        variação:
+      </Strong>
+      <StrongValue>
+      📉 {(pctChange).toLocaleString('pt-BR').replace(".", ",")}
+      </StrongValue>
+    </ContentText>
+
+    <ContentText>
+      <Strong>
         período:
       </Strong>
       <StrongValue>
@@ -78,12 +87,10 @@ export function Form({ dispatch }) {
       .then(response => response.json())
       .then(data => {
         setDados(data)
-        console.log(data)
       });
   }
 
-
-  const renderItem = ({ item }) => <Item ask={item.ask} bid={item.bid} high={item.high} low={item.low} timestamp={item.timestamp} />;
+  const renderItem = ({ item }) => <Item ask={item.ask} bid={item.bid} high={item.high} low={item.low} pctChange={item.pctChange} timestamp={item.timestamp} />;
 
   return (
     <>
